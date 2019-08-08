@@ -1,2 +1,15 @@
 <h1>sitters#new</h1>
 <p>sign up</p>
+
+<%= form_for(@sitter, url: signup_path) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br>
+  <%= f.label :email %>
+  <%= f.email_field :email %>
+  <br>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+  <br>
+  <%= f.submit "SignUp" %>
+<% end %>

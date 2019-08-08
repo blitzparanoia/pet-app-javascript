@@ -3,5 +3,9 @@ Rails.application.routes.draw do
 
   resources :sitters
 
+  #signup
+  get '/signup' => 'sitters#new'
+  post '/signup' => 'sitters#create'
+
 
 end
