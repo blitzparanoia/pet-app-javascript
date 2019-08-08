@@ -11,5 +11,6 @@ get '/login' => 'sessions#new'
 post '/login' => 'sessions#create'
 delete '/logout' => 'sessions#destroy'
 
+root 'sessions#home'
 
 end
