@@ -1,0 +1,3 @@
+class SittersController < ApplicationController
+
+end
