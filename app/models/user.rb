@@ -1,4 +1,4 @@
-class Sitter < ApplicationRecord
+class User < ApplicationRecord
   has_secure_password
 
   #validate email with presenece and uniquness true
