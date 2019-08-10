@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   #signup
   get '/signup' => 'users#new'
-  post '/signup' => 'user#create'
+  post '/signup' => 'users#create'
   #sessions
 get '/login' => 'sessions#new'
 post '/login' => 'sessions#create'
