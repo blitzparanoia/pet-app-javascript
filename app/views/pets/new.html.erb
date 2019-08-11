@@ -1,1 +1,12 @@
 <h1>pets new page</h1>
+
+<%= form_for @pet do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br>
+  <%= f.label :breed %>
+  <%= f.text_field :breed %>
+  <br>
+  <%= f.submit "Create" %>
+<% end %>

@@ -9,12 +9,23 @@ class PetsController < ApplicationController
       redirect_to pet_path(@pet)
     else
       render :new
+    end
   end
 
   def index
   end
 
   def show
+    @pet = Pet.find_by(id: params[:id])
+    if !@pet
+      redirect_to pets_path
+    end
+  end
+
+  def edit
+  end
+
+  def destroy
   end
 
   private
