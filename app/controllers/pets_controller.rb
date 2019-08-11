@@ -4,7 +4,11 @@ class PetsController < ApplicationController
   end
 
   def create
-    @pet = Pet.new()
+    @pet = Pet.new(pet_params)
+    if @pet.save
+      redirect_to pet_path(@pet)
+    else
+      render :new
   end
 
   def index
