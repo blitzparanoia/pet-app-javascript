@@ -18,7 +18,18 @@ def show
   @job = Job.find_by(id: params[:id])
 end
 
-def
+def edit
+  @job = Job.find_by(id: params[:id])
+end
+
+def update
+  @job = Job.find_by(id: params[:id])
+  if @job.update(job_params)
+  redirect_to job_path(@job)
+else
+  render :index
+end
+end
 
 private
 
