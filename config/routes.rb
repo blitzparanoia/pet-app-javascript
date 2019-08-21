@@ -14,4 +14,9 @@ delete '/logout' => 'sessions#destroy'
 
 root 'sessions#home'
 
+resources :companies do
+   resources :jobs, only: [:new, :create, :index]
+   resources :reviews, only: [:new, :create, :index]
+ end
+
 end

@@ -1,0 +1,18 @@
+<h1>Review a Company</h1>
+
+<h2>This review is for <%= @review.company.name %></h2>
+
+<%= form_for [@company, @review] do |f|%>
+  <%= f.hidden_field :company_id%>
+  <div>
+    <%= f.label :content%>
+    <%= f.text_area :content%>
+  </div>
+<br><br>
+  <div>
+    <%= f.label :rating, "Rating from 1-10"%>
+    <%= f.number_field :rating, min: 0, max: 10%>
+  </div>
+  <br>
+  <%= f.submit %>
+<% end %>
