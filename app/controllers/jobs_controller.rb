@@ -5,7 +5,7 @@ def new
 end
 
 def create
-   @job = current_user.jobs.build(job_params)
+   @job = Job.new(job_params)
    if @job.save
      redirect_to job_path(@job)
    else
@@ -15,7 +15,7 @@ def create
  end
 
 def index
-  @jobs = Job.all
+  @jobs = Job.includes(:user)
 end
 
 def show
