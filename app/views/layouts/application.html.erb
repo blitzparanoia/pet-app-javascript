@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Petwatcher</title>
+    <title>Pet Jobs Only</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,7 +10,14 @@
   </head>
 
   <body>
+    <%= link_to "Sign Up", signup_path %>
+    <br>
+    <%=link_to "Log In", login_path %>
+    <br>
+    <%= link_to "Main Page", pet_path(:index) %>
+    <br>
     <%= link_to 'Log Out', logout_path, method: :delete %>
+    <br>
     <%= yield %>
   </body>
 </html>
