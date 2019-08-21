@@ -3,5 +3,6 @@ class User < ApplicationRecord
   has_many :jobs
   has_many :companies, through: :jobs
 
-  #validate email with presenece and uniquness true
+  validates :username, :email, presence: true
+  validates :username, :email, uniqueness: true
 end

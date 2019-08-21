@@ -1,11 +1,17 @@
 class JobsController < ApplicationController
+   before_action :check_for_logged_in, except: [:index]
+  def new
+   if params[:company_id] && company = Company.find_by_id(params[:company_id])
+     @job = company.jobs.build
+   else
+     @job = Job.new
+     @job.build_company
+   end
+ end
 
-def new
-  @job = Job.new
-end
 
-def create
-   @job = Job.new(job_params)
+ def create
+   @job = current_user.jobs.build(job_params)
    if @job.save
      redirect_to job_path(@job)
    else
@@ -14,11 +20,15 @@ def create
    end
  end
 
-def index
-  @jobs = Job.includes(:user)
-end
+ def index
+   if params[:company_id] && company = Company.find_by_id(params[:company_id])
+     @jobs = company.jobs
+   else
+     @jobs = Job.includes(:company,:user)
+   end
+ end
 
-def show
+ def show
    set_job
  end
 
@@ -35,23 +45,24 @@ def show
    end
  end
 
-def destroy
-  set_job
-  @job.destroy
-  redirect_to jobs_path
-end
-
-private
-
-def job_params
-  params.require(:job).permit(:title, :position, :description)
-end
-
-def set_job
-  @job = Job.find_by(id: params[:id])
- if !@job
+ def destroy
+   set_job
+   @job.destroy
    redirect_to jobs_path
  end
-end
+
+  private
+
+  def job_params
+    params.require(:job).permit(:title, :position, :description, :company_id, company_attributes: [:name, :motto, :age])
+  end
+
+  def set_job
+    @job = Job.find_by(id: params[:id])
+   if !@job
+     redirect_to jobs_path
+   end
+  end
+
 
 end
