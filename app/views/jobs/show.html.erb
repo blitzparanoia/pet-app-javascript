@@ -1,3 +1,5 @@
+<h1>Review Job Listing</h1>
+<h3>Company:<%= @job.company.name %></h3>
 <h3>Job Title: <%= @job.title %></h3>
 <p><strong>Job Type:</strong> <%= @job.position %></p>
 <p><strong>Job Description:</strong> <%= @job.description %></p>
@@ -9,4 +11,4 @@
   <br>
 <% end %>
 
-<%= link_to "Back", jobs_path %>
+<%= link_to "Return to Main Page", jobs_path %>

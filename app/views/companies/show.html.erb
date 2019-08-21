@@ -1,3 +1,12 @@
 <h1><%= @company.name %></h1>
 
 <h2><%= @company.motto %></h2>
+
+<% if @company.reviews.exists? %>
+<h5>Average Rating: <%= @company.reviews.average_rating %></h5>
+<% end %>
+<h5>Number of Reviews: <%= @company.reviews.count %></h5>
+<p>
+  <%=link_to "See All Reviews", company_reviews_path(@company.id) %> -
+  <%=link_to "Write a New Review", new_company_review_path(@company.id) %>
+</p>
