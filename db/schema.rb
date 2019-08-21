@@ -10,22 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_10_221500) do
+ActiveRecord::Schema.define(version: 2019_08_21_021847) do
 
-  create_table "jobs", force: :cascade do |t|
-    t.integer "users_id"
-    t.integer "pets_id"
-    t.string "type"
-    t.string "title"
-    t.string "description"
+  create_table "companies", force: :cascade do |t|
+    t.string "name"
+    t.string "motto"
+    t.integer "age"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "pets", force: :cascade do |t|
-    t.string "name"
-    t.string "breed"
-    t.integer "user_id"
+  create_table "jobs", force: :cascade do |t|
+    t.integer "users_id"
+    t.integer "company_id"
+    t.string "title"
+    t.string "position"
+    t.string "description"
+    t.string "phone_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -34,6 +35,7 @@ ActiveRecord::Schema.define(version: 2019_08_10_221500) do
     t.string "username"
     t.string "email"
     t.string "password_digest"
+    t.string "uid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
