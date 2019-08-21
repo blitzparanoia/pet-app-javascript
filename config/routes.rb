@@ -12,6 +12,8 @@ get '/login' => 'sessions#new'
 post '/login' => 'sessions#create'
 delete '/logout' => 'sessions#destroy'
 
+get '/auth/facebook/callback' => 'sessions#facebookcreate'
+
 root 'sessions#home'
 
 resources :companies do
