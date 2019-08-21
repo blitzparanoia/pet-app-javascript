@@ -5,9 +5,13 @@ def new
 end
 
 def create
-  @job = Job.new(job_params)
-  @job.save
-  redirect_to job_path(@job)
+  @job = current_user.jobs.build(job_params)
+  if @job.save
+    redirect_to job_path(@job)
+  else
+    @job.build_company unless @job.company
+    render :new
+  end
 end
 
 def index

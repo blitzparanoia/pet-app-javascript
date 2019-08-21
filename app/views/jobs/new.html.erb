@@ -1,0 +1,15 @@
+<h1>New Job</h1>
+
+<%= form_for(@job) do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <br>
+  <%= f.label :job_type %>
+    <%= f.select :position, ['Full Time', 'Part Time', 'Volunteer', 'Internship', 'Temporary', 'Carpe Diem']%>
+
+  <br>
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+  <br>
+  <%= f.submit %>
+<% end %>
