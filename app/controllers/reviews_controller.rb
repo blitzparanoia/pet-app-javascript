@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+  before_action :check_for_logged_in, only: [:new, :create, :edit, :update]
 
 def index
   @company = Company.find_by_id(params[:company_id])
