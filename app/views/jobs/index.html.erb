@@ -4,10 +4,11 @@
 <br><br>
 
 <% @jobs.each do |job| %>
+Date Created:<%= job.created_at.strftime("%b %d, %Y") %><br>
 Open Position:<%= link_to(job) do %>
 <%= job.title %><br>
 <% end %>
-Company:
+Company:<%= job.company.name %><br>
 Job Type: <%= job.position %><br>
 Description: <%= job.description %>
 

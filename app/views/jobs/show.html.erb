@@ -1,8 +1,10 @@
 <h1>Review Job Listing</h1>
-<h3>Company:<%= @job.company.name %></h3>
-<h4>Job Title: <%= @job.title %></h4>
+<h3>Company: <%= @job.company.name %></h3>
+<p><strong>Job Title:</strong> <%= @job.title %></p>
 <p><strong>Job Type:</strong> <%= @job.position %></p>
 <p><strong>Job Description:</strong> <%= @job.description %></p>
+<p><strong>Contact Number:</strong> <%= @job.phone_number %></p>
+
 
 <% if @job.user == current_user %>
   <%= link_to "Edit Job Listing", edit_job_path(@job) %>
