@@ -1,7 +1,9 @@
-<h1>users#new</h1>
-<p>sign up</p>
+<h1>sign up</h1>
 
 <%= form_for(@user, url: signup_path) do |f| %>
+
+<%= render partial: 'layouts/errors', locals: {object: @user} %>
+
   <%= f.label :username %>
   <%= f.text_field :username %>
   <br>

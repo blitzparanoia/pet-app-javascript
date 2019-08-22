@@ -20,5 +20,4 @@ class Job < ApplicationRecord
 #scope for job type
 scope :volunteer, -> {where(position: "Volunteer")}
 
-
 end

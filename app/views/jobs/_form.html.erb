@@ -1,4 +1,7 @@
 <%= form_for(@job) do |f| %>
+
+<%= render partial: 'layouts/errors', locals: {object: @job} %>
+
   <%= f.label :title %>
   <%= f.text_field :title %>
   <br>
@@ -10,7 +13,7 @@
     <%= f.text_area :description %>
     <br>
 
-    <br>Format example: 1234567890 (10-digit number) 
+    <br>Format example: 1234567890 (10-digit number)
     <br>
     <%= f.label :contact_number %>
     <%= f.text_field :phone_number %>
