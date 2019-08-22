@@ -13,6 +13,7 @@ def create
     session[:user_id] = @user.id
     redirect_to jobs_path
   else
+     flash[:error] = "Username or password was incorrect"
     redirect_to '/login'
   end
 end
