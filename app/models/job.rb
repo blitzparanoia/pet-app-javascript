@@ -17,7 +17,8 @@ class Job < ApplicationRecord
        self.company = company if company.valid? || !self.company
     end
 
-#scope for job type
-scope :volunteer, -> {where(position: "Volunteer")}
+
+#Add scope
+
 
 end

@@ -8,4 +8,6 @@ class Company < ApplicationRecord
   validates :name, :age , :motto, presence: true
   validates_uniqueness_of  :name
 
+  scope :company_name, -> { order(:name) }
+
 end
