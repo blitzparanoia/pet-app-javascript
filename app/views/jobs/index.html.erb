@@ -1,12 +1,6 @@
 <h1> Job Listings </h1>
 <%= link_to 'Add New Job', new_job_path %>
 
-<%= form_tag("/jobs", method: "get") do %>
-  <%= label_tag(:position, "Pick a job type:") %>
-  <%= select_tag "Position", options_from_collection_for_select(@jobs, "position", "position")%>
-  <%= submit_tag("Search") %>
-<% end %>
-
 <br><br>
 
 <% @jobs.each do |job| %>
