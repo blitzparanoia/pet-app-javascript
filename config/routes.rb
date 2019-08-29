@@ -21,4 +21,5 @@ resources :companies do
    resources :reviews, only: [:new, :create, :index]
  end
 
+
 end

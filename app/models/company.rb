@@ -9,5 +9,6 @@ class Company < ApplicationRecord
   validates_uniqueness_of  :name
 
   scope :company_name, -> { order(:name) }
+  # scope :most_jobs, -> { where(id: Job.maximum(:company_id)).first }
 
 end

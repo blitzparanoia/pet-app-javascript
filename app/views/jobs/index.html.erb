@@ -1,4 +1,8 @@
 <h1> Job Listings </h1>
+
+<%= "#{top_company.name} currently has the most open positions!" %>
+<br>
+<br>
 <%= link_to 'Add New Job', new_job_path %>
 
 <br><br>
@@ -9,11 +13,8 @@ Open Position:<%= link_to(job) do %>
 <%= job.title %><br>
 <% end %>
 Company:<%= job.company.name %><br>
-Job Type: <%= job.position %><br>
+Job Tlsype: <%= job.position %><br>
 Description: <%= job.description %>
-
-
-
 
 <br><br><br>
 <% end %>

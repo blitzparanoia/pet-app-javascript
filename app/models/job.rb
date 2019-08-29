@@ -17,8 +17,14 @@ class Job < ApplicationRecord
        self.company = company if company.valid? || !self.company
     end
 
-
 #Add scope
+ # scope :most_jobs, -> { where(id: Job.maximum(:company_id)).first }
+ scope :most_jobs, -> { select(:company_id).group(:company_id).count }
+
+ def self.job_hash
+   jobpicked = self.most_jobs.max_by {|k,v| v}
+  end
+
 
 
 end

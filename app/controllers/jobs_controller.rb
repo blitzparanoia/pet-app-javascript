@@ -1,4 +1,5 @@
 class JobsController < ApplicationController
+  include JobsHelper
    before_action :check_for_logged_in, except: [:index]
   def new
    if params[:company_id] && company = Company.find_by_id(params[:company_id])
@@ -8,7 +9,6 @@ class JobsController < ApplicationController
      @job.build_company
    end
  end
-
 
  def create
    @job = current_user.jobs.build(job_params)
